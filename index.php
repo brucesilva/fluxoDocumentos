@@ -52,7 +52,7 @@
 
             <div class="col-md-3">
                 <select name="entUsuarioCompras">
-                    <option value="1">Maria Luiza Mozer</option>
+                    <option value="Maria Luiza Mozer">Maria Luiza Mozer</option>
                 </select>
             </div>
         </div>
@@ -80,8 +80,8 @@
 
     <div class=" col-md-1">
             <select>
-                <option value="1">Sim</option>
-                <option value="2">Não</option>
+                <option value="1">Não</option>
+                <option value="2">Sim</option>
             </select>
         </div>
 

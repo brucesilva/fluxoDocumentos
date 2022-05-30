@@ -5,6 +5,10 @@ $sql = $pdo->query("SELECT * FROM  fluxodocumentos");
 $sql->execute();
 $result = $sql->fetchAll(PDO::FETCH_ASSOC);
 
+foreach ($result as $value => $documentos) {
+    echo $documentos['solicitante'] . " " . $documentos['empresa'] . "<br>";
+}
+
 echo "<pre>";
 print_r($result);
 echo "<pre>";
@@ -42,34 +46,52 @@ echo "<pre>";
             </tr>
         </thead>
         <tbody>
+            <?php
+            foreach ($result as $value => $documentos) {
+                // echo $documentos['solicitante'] . " " . $documentos['empresa'] . "<br>"; 
+            ?>
 
-            <tr>
-                <th scope="row">2</th>
-                <td>Bruce</td>
-                <td>XYZ</td>
-                <td>@30/05/2022</td>
-                <td>Juliana</td>
-                <td>
-                    <select>
-                        <option value="1">
-                            Sim
-                        </option>
+                <tr>
+                    <th scope="row">
+                        <?= $documentos['idSolicitante']; ?>
+                    </th>
+                    <td>
+                        <?= $documentos['solicitante']; ?>
+                    </td>
 
-                        <option value="2">
-                            Não
-                        </option>
-                    </select>
-                </td>
+                    <td>
+                        <?= $documentos['empresa']; ?>
+                    </td>
 
-                <td>
-                    <input type="text" name="prontoData" style="width: 105px;">
-                </td>
+                    <td>
+                        <?= $documentos['dataEntSolicitante']; ?>
+                    </td>
 
-                <td>
-                    <button class="btn btn-primary" style="height:30px; line-height:10px ;">Finalizar</button>
-                </td>
-            </tr>
+                    <td>
+                        <?= $documentos['entParaCompras']; ?>
+                    </td>
 
+                    <td>
+                        <select>
+                            <option value="1">
+                                Não
+                            </option>
+
+                            <option value="2">
+                                Sim
+                            </option>
+                        </select>
+                    </td>
+
+                    <td>
+                        <input type="text" name="prontoData" style="width: 105px;">
+                    </td>
+
+                    <td>
+                        <button class="btn btn-primary" style="height:30px; line-height:10px ;">Finalizar</button>
+                    </td>
+                </tr>
+            <?php } ?>
         </tbody>
     </table>
 
