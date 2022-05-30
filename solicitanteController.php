@@ -11,9 +11,7 @@ $entUsuarioCompras = $_POST['entUsuarioCompras'];
 // print_r($_POST);
 // echo "<pre>";
 
-echo "Solicitante => " . $solicitante .  " <br> Empresa => " . $empresa . "<br> Data Entregue => " . $dataEntregueCompras . "<br> Entregue para " . $entUsuarioCompras;
-
-
+echo "Solicitante => " . $solicitante .  " <br> Empresa => " . $empresa . "<br> Data Entregue => " . $dataEntregueCompras . "<br> Entregue para " . $entUsuarioCompras . "<br>";
 
 
 $s = new solicitante();
@@ -21,8 +19,11 @@ $s->__set('solicitante', $solicitante);
 $s->__set('empresa', $empresa);
 $s->__set('data', $dataEntregueCompras);
 $s->__set('entregueParaUsuario', $entUsuarioCompras);
+$resultado = $s->insert($pdo);
 
-$s->insert($pdo);
+if ($resultado == 1) {
+    header("location:viewCompras.php");
+}
 
 ?>
 

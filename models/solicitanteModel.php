@@ -54,7 +54,15 @@ class solicitante
         $sql->bindvalue(':14', 'null');
         $sql->bindvalue(':15', 'null');
         $sql->execute();
-        // 
+        unset($pdo);
+
+        $result = $sql->rowCount();
+        //  
+        if ($result > 0) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 }
 // $s = new solicitante();
