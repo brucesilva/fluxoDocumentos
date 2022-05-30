@@ -18,3 +18,16 @@ h1{
     text-align: center; 
     margin-left: 100px;
 }
+
+.esconder{
+    display: none;
+}
+
+a{
+    display: block;
+}
+/* .editar{
+    display: none;
+} */
+
+ 

@@ -10,8 +10,6 @@ $sqlRh = "SELECT * FROM fluxodocumentos";
 $sqlSesmt = "SELECT * FROM fluxodocumentos";
 $sqlUser = "SELECT * FROM fluxodocumentos WHERE solicitante = :user";
 
-
-
 $sql = $pdo->prepare($sqlUser);
 $sql->bindValue(':user', $user);
 $sql->execute();

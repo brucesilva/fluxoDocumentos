@@ -42,17 +42,17 @@ class solicitante
         $sql->bindvalue(':datae', $this->__get('data'));
         $sql->bindvalue(':entregueParaUsuario', $this->__get('entregueParaUsuario'));
         // $sql->bindvalue(':5', 'null');
-        $sql->bindvalue(':5', 'null');
-        $sql->bindvalue(':6', 'null');
-        $sql->bindvalue(':7', 'null');
-        $sql->bindvalue(':8', 'null');
-        $sql->bindvalue(':9', 'null');
-        $sql->bindvalue(':10', 'null');
-        $sql->bindvalue(':11', 'null');
-        $sql->bindvalue(':12', 'null');
-        $sql->bindvalue(':13', 'null');
-        $sql->bindvalue(':14', 'null');
-        $sql->bindvalue(':15', 'null');
+        $sql->bindvalue(':5', '');
+        $sql->bindvalue(':6', '');
+        $sql->bindvalue(':7', '');
+        $sql->bindvalue(':8', '');
+        $sql->bindvalue(':9', '');
+        $sql->bindvalue(':10', '');
+        $sql->bindvalue(':11', '');
+        $sql->bindvalue(':12', '');
+        $sql->bindvalue(':13', '');
+        $sql->bindvalue(':14', '');
+        $sql->bindvalue(':15', '');
         $sql->execute();
         unset($pdo);
 

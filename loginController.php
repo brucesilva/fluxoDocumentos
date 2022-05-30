@@ -17,8 +17,8 @@ $result = $l->verifyLogin($pdo);
 // echo "O resultado retornado foi " . $result;
 if ($result == 0) {
     $_SESSION['user'] = $user;
-    $_SESSION['page'] = 'index.php';
-    header("location:index.php");
+    $_SESSION['page'] = 'solicitante.php';
+    header("location:solicitante.php");
 } else {
-    header("location:login.php?p=fail");
+    header("location:index.php?p=fail");
 }

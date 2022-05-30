@@ -2,8 +2,15 @@
 session_start();
 require('conexao.php');
 
-if ($_SESSION['user'] != 'Maria') {
-    header('location:' . $_SESSION['page']);
+
+// aqui estou verificando o usuário, e mostro só a tela que for dele
+// if ($_SESSION['user'] != 'bruce') {
+//     header('location:' . $_SESSION['page']);
+// }
+
+if (!isset($_SESSION['user'])) {
+    header("location:index.php?s=fail");
+    echo "<br> Vc tem permisão";
 }
 
 
