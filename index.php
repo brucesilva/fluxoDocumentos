@@ -1,3 +1,25 @@
+<?php
+session_start();
+// echo "Bem vindo " . $_SESSION['user'];
+
+// $validationSession = $_SESSION['user'];
+
+// echo "Imprimindo o valor de validationSession " . $validationSession;
+
+// if ($_SESSION['user'] == 'bruce') {
+//     echo "Bem vindo Bruce";
+// } else {
+//     echo "Você não é o bruce";
+// }
+
+if (!isset($_SESSION['user'])) {
+    header("location:login.php?s=fail");
+    echo "<br> Vc tem permisão";
+}
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 

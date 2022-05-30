@@ -1,17 +1,23 @@
 <?php
+session_start();
 require('conexao.php');
+
+if ($_SESSION['user'] != 'Maria') {
+    header('location:' . $_SESSION['page']);
+}
+
 
 $sql = $pdo->query("SELECT * FROM  fluxodocumentos");
 $sql->execute();
 $result = $sql->fetchAll(PDO::FETCH_ASSOC);
 
-foreach ($result as $value => $documentos) {
-    echo $documentos['solicitante'] . " " . $documentos['empresa'] . "<br>";
-}
+// foreach ($result as $value => $documentos) {
+//     echo $documentos['solicitante'] . " " . $documentos['empresa'] . "<br>";
+// }
 
-echo "<pre>";
-print_r($result);
-echo "<pre>";
+// echo "<pre>";
+// print_r($result);
+// echo "<pre>";
 
 ?>
 
