@@ -76,6 +76,7 @@ $result = $sql->fetchAll(PDO::FETCH_ASSOC);
                         <th scope="row">
                             <?= $documentos['idSolicitante']; ?>
                         </th>
+
                         <td>
                             <?= $documentos['solicitante']; ?>
                         </td>
@@ -93,7 +94,7 @@ $result = $sql->fetchAll(PDO::FETCH_ASSOC);
                         </td>
 
                         <td>
-                            <select name="pronto">
+                            <select name="pronto[]">
                                 <option value="Não">
                                     Não
                                 </option>
@@ -105,11 +106,14 @@ $result = $sql->fetchAll(PDO::FETCH_ASSOC);
                         </td>
 
                         <td>
-                            <input type="text" name="prontoData" style="width: 105px;">
+                            <!-- <input type="text" name="prontoData" style="width: 105px;" id="prontoData"> -->
+                            <input type="text" name="prontoData[<?= $documentos['idSolicitante']; ?>]" style="width: 105px;" id="prontoData[<?= $documentos['idSolicitante']; ?>]">
                         </td>
 
                         <td>
-                            <button type="submit" class="btn btn-danger" style="height:30px; line-height:10px ;">
+
+                            <button type="submit" class="btn btn-danger" style="height:30px; line-height:10px;">
+                                <a href="updateCompras.php?id=<?= $documentos['idSolicitante']; ?>"></a>
                                 Enviar
                             </button>
 
@@ -120,6 +124,10 @@ $result = $sql->fetchAll(PDO::FETCH_ASSOC);
     </form> <!-- fecha form -->
     </tbody>
     </table>
+
+
+
+    <!-- ******************************************* -->
 
 </body>
 
