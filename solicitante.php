@@ -27,10 +27,8 @@ $sqlUser = "SELECT * FROM fluxodocumentos WHERE solicitante = :user order by ids
 $sql = $pdo->prepare($sqlUser);
 $sql->bindValue(':user', $user);
 $sql->execute();
+unset($pdo);
 $result = $sql->fetchAll(PDO::FETCH_ASSOC);
-
-
-
 
 ?>
 
@@ -124,20 +122,18 @@ $result = $sql->fetchAll(PDO::FETCH_ASSOC);
 
                 <!-- aqui se a data de compras estiver ok, abro um link para a pessoa cadastrar para quem ele levou 
                 no rh -->
+
+
+                <th class="editar" scope="col">Editar</th>
+
                 <?php
                 foreach ($result as $value => $documentos) {
                     // echo $documentos['solicitante'] . " " . $documentos['empresa'] . "<br>";  
-                    if ($documentos['comprasProntoData'] == '') {
+                    if ($documentos['comprasProntoData'] != '') {
 
                 ?>
 
-                        <th class="editar" scope="col">Editar</th>
-
-
                     <?php } ?>
-
-
-
 
             </tr>
         </thead>
@@ -210,17 +206,14 @@ $result = $sql->fetchAll(PDO::FETCH_ASSOC);
 
                 <!-- aqui se a data de compras estiver ok, abro um link para a pessoa cadastrar para quem ele levou 
                 no rh -->
-                <?php
-                    if ($documentos['comprasProntoData'] == '') {
 
-                ?>
-                    <td>
-                        <a class="editar" href="editar.php?id=<?= $documentos['idSolicitante'] ?>">Editar</a>
-                    </td>
-
-                <?php } ?>
-
-
+                <?php if ($documentos['comprasProntoData'] != '') {
+                        if ($documentos['rhEntreguePara'] == '') { ?>
+                        <td>
+                            <a class="editar" href="editar.php?id=<?= $documentos['idSolicitante'] ?>">Editar</a>
+                        </td>
+                <?php }
+                    } ?>
             </tr>
         <?php } ?>
         </tbody>
@@ -241,7 +234,7 @@ $result = $sql->fetchAll(PDO::FETCH_ASSOC);
 
 
     <!-- ************Estou escondendo essa parte para baixo -->
-    <div class="esconder">
+    <div class=" esconder">
         <!-- Aqui vou fazer a parte de compras -->
         <h2>Processo Compras</h2>
         <div class="row">

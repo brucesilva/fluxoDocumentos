@@ -1,6 +1,7 @@
 <?php
 class solicitante
 {
+    private $id;
     private $solicitante;
     private $empresa;
     private $data;
@@ -63,6 +64,20 @@ class solicitante
         } else {
             return 0;
         }
+    }
+
+    public function update($pdo)
+    {
+
+        // echo "Entregue para " . $this->__get('rhEntreguePara') . " <br>";
+        // echo "Data Entregue para RH" . $this->__get('rhDataEntrega') . " <br>";
+        // echo "id " . $this->__get('id') . " <br>";
+
+        $sql = $pdo->prepare("UPDATE fluxodocumentos SET rhEntreguePara = :rhEntPara , rhDataEntrega = :rhDataEntrega where idSolicitante = :id ");
+        $sql->bindValue(':rhEntPara', $this->__get('rhEntreguePara'));
+        $sql->bindValue(':rhDataEntrega', $this->__get('rhDataEntrega'));
+        $sql->bindValue(':id', $this->__get('id'));
+        return $sql->execute();
     }
 }
 // $s = new solicitante();

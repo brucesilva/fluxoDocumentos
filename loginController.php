@@ -16,9 +16,15 @@ $result = $l->verifyLogin($pdo);
 
 // echo "O resultado retornado foi " . $result;
 if ($result == 0) {
-    $_SESSION['user'] = $user;
-    $_SESSION['page'] = 'solicitante.php';
-    header("location:solicitante.php");
+
+    if ($user == 'maria') {
+        $_SESSION['user'] = $user;
+        header("location:viewCompras.php");
+    } else {
+        $_SESSION['user'] = $user;
+        $_SESSION['page'] = 'solicitante.php';
+        header("location:solicitante.php");
+    }
 } else {
     header("location:index.php?p=fail");
 }

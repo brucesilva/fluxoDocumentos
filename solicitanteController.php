@@ -16,13 +16,16 @@ $entUsuarioCompras = $_POST['entUsuarioCompras'];
 
 // echo "Solicitante => " . $solicitante .  " <br> Empresa => " . $empresa . "<br> Data Entregue => " . $dataEntregueCompras . "<br> Entregue para " . $entUsuarioCompras . "<br>";
 
-echo "Na classe solicitanteController o solicitante é o " . $solicitante;
+// echo "Na classe solicitanteController o solicitante é o " . $solicitante;
 
+// primeiro eu instancio a classe, para mandar os gett e setts
 $s = new solicitante();
 $s->__set('solicitante', $solicitante);
 $s->__set('empresa', $empresa);
 $s->__set('data', $dataEntregueCompras);
 $s->__set('entregueParaUsuario', $entUsuarioCompras);
+
+// depois eu jogo os dados para a função
 $resultado = $s->insert($pdo);
 
 // if ($resultado == 1) {
